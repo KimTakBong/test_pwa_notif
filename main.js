@@ -25,11 +25,13 @@ const requestNotificationPermission = async () => {
 }
 
 const showLocalNotification = (title, body, swRegistration) => {
+	console.log('notif push')
     const options = {
         body,
         // here you can add more properties like icon, image, vibrate, etc.
     };
     swRegistration.showNotification(title, options);
+    console.log(Notification.permission)
 }
 
 const main = async () => {
@@ -38,4 +40,5 @@ const main = async () => {
     const permission =  await requestNotificationPermission();
     showLocalNotification('This is title', 'this is the message', swRegistration);
 }
+
 main();
